@@ -64,6 +64,7 @@ const SignIn = () => {
           <button type="submit" onClick={handleSignIn} className="btn btn-primary btn-lg">SignIn</button>
           <br /><br />
           <p>don't have account  Create New account br <Link to={"/"}>SignUp</Link></p>
+          <p><Link to={"/resetpassword"}>ForgotPassword?</Link></p>
          
           {/* <Link  to={'/show'}></Link> */}
         </div>
