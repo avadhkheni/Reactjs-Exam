@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { app } from '../auth/Firebase'
+import { useNavigate } from 'react-router-dom'
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 // import SignUp from './SignUp'
 
@@ -9,6 +10,8 @@ const auth = getAuth(app)
 
 
 const SignUp = () => {
+  const navigate = useNavigate()
+
 
   const [obj, setObj] = useState({
     email: "",
@@ -17,11 +20,17 @@ const SignUp = () => {
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    createUserWithEmailAndPassword(auth, obj.email, obj.password).then(() => console.log("SignIn......"))
-    setObj({
-      email: "",
-      password: ""
-    })
+    try{
+      createUserWithEmailAndPassword(auth, obj.email, obj.password).then(() => console.log("SignIn......"))
+      setObj({
+        email: "",
+        password: ""
+      })
+      navigate("/show")
+    }catch{
+         console.error("SignUp failed:", error.message);
+      // alert("Invalid email or password");
+    }
     // alert("Sign in successful!");
   }
 
@@ -54,7 +63,8 @@ const SignUp = () => {
 
           {/* <button type='submit'>Submit</button> */}
           <br />
-          <Link type="submit" className="btn btn-success btn-lg" to={"/show"}>SignUp</Link>
+          <Link type="submit" onClick={handleSignUp} className="btn btn-success btn-lg" >SignUp</Link>
+          <p>already have an account  <Link to={"/signin"}>Signin</Link></p>
         </div>
       </form>
     </>
