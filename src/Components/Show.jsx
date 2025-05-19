@@ -162,10 +162,8 @@ export default function Show() {
         <Link onClick={handleLogout} className="btn btn-danger" to="/signin">
           Logout
         </Link>
-        {/* <Link className="btn btn-success" to="/">
-          SignUp
-        </Link> */}
+      
       </div>
     </div>
-  );
+  )
 }
