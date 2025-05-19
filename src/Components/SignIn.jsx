@@ -24,7 +24,7 @@ const SignIn = () => {
         password: ""
       })
 
-      .navigate("/show")
+      navigate("/show")
     }catch{
         console.error("SignIn failed:", error.message);
       alert("Invalid email or password");
@@ -62,7 +62,8 @@ const SignIn = () => {
           {/* <button type='submit'>Submit</button> */}
           <br />
           <button type="submit" onClick={handleSignIn} className="btn btn-primary btn-lg">SignIn</button>
-          <p>Create New account <Link to={"/"}>SignUp</Link></p>
+          <br /><br />
+          <p>don't have account  Create New account br <Link to={"/"}>SignUp</Link></p>
          
           {/* <Link  to={'/show'}></Link> */}
         </div>

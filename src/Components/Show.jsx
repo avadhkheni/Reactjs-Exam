@@ -158,13 +158,13 @@ export default function Show() {
         </div>
       )}
 
-      <div className="d-flex justify-content-between mt-4">
+      <div className="d-flex justify-content-center mt-4">
         <Link onClick={handleLogout} className="btn btn-danger" to="/signin">
           Logout
         </Link>
-        <Link className="btn btn-success" to="/">
+        {/* <Link className="btn btn-success" to="/">
           SignUp
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
